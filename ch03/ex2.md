@@ -7,7 +7,7 @@ pair x y = (x, y) :: a -> b -> (a, b)
 
 double x = x * 2 :: Num a => a -> a
 
-palindrome xs = reverse xs == xs :: [a] -> Bool
+palindrome xs = reverse xs == xs :: Eq a => [a] -> Bool
 
 twice f x = f (f x) :: (a -> a) -> a -> a
 ```
