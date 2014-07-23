@@ -2,6 +2,7 @@ module Chapter6 where
 
 -- Exercise 1
 pow :: Int -> Int -> Int
+pow _ 0 = 1
 pow x 1 = x
 pow x y = x * (pow x (pred y))
 
