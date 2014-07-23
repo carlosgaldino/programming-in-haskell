@@ -78,7 +78,7 @@ nth (x:_) 0 = x
 nth (_:xs) n = nth xs (pred n)
 
 elem' :: Eq a => a -> [a] -> Bool
-elem' x [] = False
+elem' _ [] = False
 elem' x (y:ys)
   | x == y = True
   | otherwise = elem' x ys
