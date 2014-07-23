@@ -3,7 +3,6 @@ module Chapter6 where
 -- Exercise 1
 pow :: Int -> Int -> Int
 pow _ 0 = 1
-pow x 1 = x
 pow x y = x * (pow x (pred y))
 
 {--
@@ -13,7 +12,9 @@ pow x y = x * (pow x (pred y))
 = { applying pow }
 2 * (2 * (2 pow 1))
 = { applying pow }
-2 * (2 * 2)
+2 * (2 * (2 * (2 pow 0)))
+= { applying pow }
+2 * (2 * (2 * 1))
 = { applying * }
 8
 --}
