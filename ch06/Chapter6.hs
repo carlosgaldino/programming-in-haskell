@@ -72,8 +72,8 @@ replicate' 0 _ = []
 replicate' n x = x : replicate' (pred n) x
 
 nth :: [a] -> Int -> a
-nth (x:xs) 0 = x
-nth (x:xs) n = nth xs (pred n)
+nth (x:_) 0 = x
+nth (_:xs) n = nth xs (pred n)
 
 elem' :: Eq a => a -> [a] -> Bool
 elem' x [] = False
