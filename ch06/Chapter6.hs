@@ -146,18 +146,18 @@ take' n (x:xs) =
 take' 0 []     = []
 take' 0 (x:xs) = []
 take' n []     = []
-take' n (x:xs) = x : take (pred n) xs
+take' n (x:xs) = x : take' (pred n) xs
 
 -- Step 5: generalise and simplify
 take' 0 _      = []
 take' _ []     = []
-take' n (x:xs) = x : take (pred n) xs
+take' n (x:xs) = x : take' (pred n) xs
 --}
 
 take' :: Int -> [a] -> [a]
 take' 0 _      = []
 take' _ []     = []
-take' n (x:xs) = x : take (pred n) xs
+take' n (x:xs) = x : take' (pred n) xs
 
 {--
 -- Step 1: define the type
