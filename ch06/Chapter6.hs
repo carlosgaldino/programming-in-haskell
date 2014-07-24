@@ -99,3 +99,86 @@ msort :: Ord a => [a] -> [a]
 msort [x] = [x]
 msort xs = merge (msort l) (msort r)
   where (l, r) = halve xs
+
+-- Exercise 6
+
+{--
+-- Step 1: define the type
+sum' :: Num a => [a] -> a
+
+-- Step 2: enumerate the cases
+sum' []     =
+sum' (x:xs) =
+
+-- Step 3: define the simple cases
+sum' []     = 0
+sum' (x:xs) =
+
+-- Step 4: define the other cases
+sum' []     = 0
+sum' (x:xs) = x + sum' xs
+
+-- Step 5: generalise and simplify
+sum' = foldl (+) 0
+--}
+
+sum' :: Num a => [a] -> a
+sum' = foldl (+) 0
+
+{--
+-- Step 1: define the type
+take' :: Int -> [a] -> [a]
+
+-- Step 2: enumerate the cases
+take' 0 []     =
+take' 0 (x:xs) =
+take' n []     =
+take' n (x:xs) =
+
+-- Step 3: define the simple cases
+take' 0 []     = []
+take' 0 (x:xs) = []
+take' n []     = []
+take' n (x:xs) =
+
+-- Step 4: define the other cases
+take' 0 []     = []
+take' 0 (x:xs) = []
+take' n []     = []
+take' n (x:xs) = x : take (pred n) xs
+
+-- Step 5: generalise and simplify
+take' 0 _      = []
+take' _ []     = []
+take' n (x:xs) = x : take (pred n) xs
+--}
+
+take' :: Int -> [a] -> [a]
+take' 0 _      = []
+take' _ []     = []
+take' n (x:xs) = x : take (pred n) xs
+
+{--
+-- Step 1: define the type
+last' :: [a] -> a
+
+-- Step 2: enumerate the cases
+last' [x]    =
+last' (x:xs) =
+
+-- Step 3: define the simple cases
+last' [x]    = x
+last' (x:xs) =
+
+-- Step 4: define the other cases
+last' [x]    = x
+last' (x:xs) = last' xs
+
+-- Step 5: generalise and simplify
+last' [x]    = x
+last' (_:xs) = last' xs
+--}
+
+last' :: [a] -> a
+last' [x]    = x
+last' (_:xs) = last' xs
