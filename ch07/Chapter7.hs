@@ -59,11 +59,6 @@ unfold p h t x
   | p x = []
   | otherwise = h x : unfold p h t (t x)
 
-type Bit = Int
-
-chop8 :: [Bit] -> [[Bit]]
-chop8 = unfold null (take 8) (drop 8)
-
 mapUnfold :: (a -> b) -> [a] -> [b]
 mapUnfold f = unfold null (f . head) tail
 
@@ -71,6 +66,11 @@ iterateUnfold :: (a -> a) -> a -> [a]
 iterateUnfold f = unfold (const False) id f
 
 -- Exercise 8
+type Bit = Int
+
+chop8 :: [Bit] -> [[Bit]]
+chop8 = unfold null (take 8) (drop 8)
+
 bin2int :: [Bit] -> Int
 bin2int bits = sum [w * b | (w, b) <- zip weights bits]
                  where weights = iterateUnfold (*2) 1
