@@ -17,6 +17,7 @@ int = do char '-'
 comment :: Parser ()
 comment = do symbol "--"
              many (sat (/= '\n'))
+             char '\n'
              return ()
 
 -- Exercise 6
