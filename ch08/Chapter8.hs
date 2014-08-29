@@ -20,6 +20,17 @@ comment = do symbol "--"
              char '\n'
              return ()
 
+-- Exercise 5
+{--
+-- Without the simplification a simple number would be parsed twice as
+-- a `term`. First for being part of `term + expr` which would fail when
+-- the parser tried to find the `+` symbol, after that it would be parsed
+-- again as `term` because: `expr := term + expr | term`.
+--
+-- With the simplification the rule is then: `expr := term (+ expr | ∅)`
+-- which will process `term` just once.
+--}
+
 -- Exercise 6
 expr :: Parser Int
 expr = do t <- term
