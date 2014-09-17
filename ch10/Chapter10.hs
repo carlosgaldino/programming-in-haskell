@@ -56,3 +56,15 @@ balance :: [Int] -> Tree
 balance [x] = Leaf x
 balance xs  = Node (balance l) (balance r)
                 where (l, r) = halve xs
+
+-- Exercise 8
+instance Monad Maybe where
+    (Just x) >>= g = g x
+    Nothing  >>= _ = Nothing
+
+    return = Just
+
+instance Monad [] where
+    return x = [x]
+
+    x >>= y = foldr ((++) . y) [] x
