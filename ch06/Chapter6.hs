@@ -67,7 +67,7 @@ and' (True:xs) = and' xs
 
 concat' :: [[a]] -> [a]
 concat' [] = []
-concat' (x:xs) = x ++ concat xs
+concat' (x:xs) = x ++ concat' xs
 
 replicate' :: Int -> a -> [a]
 replicate' 0 _ = []
